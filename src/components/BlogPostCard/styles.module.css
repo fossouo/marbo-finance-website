@@ -1,0 +1,106 @@
+.blogPostCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background-color: var(--ifm-card-background-color);
+}
+
+.blogPostCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  padding: var(--ifm-card-vertical-spacing) var(--ifm-card-horizontal-spacing);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.cardBody {
+  padding: var(--ifm-card-vertical-spacing) var(--ifm-card-horizontal-spacing);
+  flex-grow: 1;
+}
+
+.cardFooter {
+  padding: var(--ifm-card-vertical-spacing) var(--ifm-card-horizontal-spacing);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.blogPostTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.blogPostTitle a {
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+}
+
+.blogPostTitle a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.blogPostDate {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0.5rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.readingTime {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.readMoreLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.readMoreLink:hover {
+  text-decoration: underline;
+}
+
+.readMoreLink::after {
+  content: '→';
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.readMoreLink:hover::after {
+  transform: translateX(3px);
+}
