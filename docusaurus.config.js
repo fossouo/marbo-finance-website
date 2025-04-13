@@ -27,6 +27,17 @@ const config = {
     locales: ['fr'],
   },
 
+  // Amélioration SEO : configuration des métadonnées par défaut
+  metadata: [
+    {name: 'keywords', content: 'gestion de patrimoine, finance, indépendant, fiscalité, investissement, retraite, transmission, protection, Île-de-France, Massy'},
+    {name: 'robots', content: 'index, follow'},
+    {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
+    {name: 'revisit-after', content: '7 days'},
+    {name: 'author', content: 'Marbo Finance'},
+    {property: 'og:type', content: 'website'},
+    {property: 'og:site_name', content: 'Marbo Finance'},
+  ],
+
   presets: [
     [
       'classic',
@@ -45,6 +56,16 @@ const config = {
           // editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           blogSidebarTitle: 'Articles récents',
           blogSidebarCount: 10,
+          postsPerPage: 9,
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          feedOptions: {
+            type: 'all',
+            title: 'Marbo Finance - Actualités Patrimoniales',
+            description: 'Suivez les dernières actualités et conseils patrimoniaux de Marbo Finance',
+            copyright: `© ${new Date().getFullYear()} Marbo Finance`,
+            language: 'fr',
+          },
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -53,7 +74,54 @@ const config = {
           trackingID: 'G-XXXXXXXXXX', // À remplacer par votre identifiant Google Analytics
           anonymizeIP: true,
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 85,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/logo.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#3578e5',
+          },
+        ],
+      },
     ],
   ],
 
@@ -62,6 +130,9 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/marbo-finance-social-card.jpg',
+      metadata: [
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       navbar: {
         title: 'Marbo Finance',
         logo: {
@@ -69,6 +140,11 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            to: '/notre-cabinet', 
+            label: 'Notre Cabinet',
+            position: 'left',
+          },
           {
             type: 'docSidebar',
             sidebarId: 'expertiseSidebar',
@@ -103,23 +179,44 @@ const config = {
         style: 'dark',
         links: [
           {
+            title: 'Notre Cabinet',
+            items: [
+              {
+                label: 'Qui sommes-nous',
+                to: '/notre-cabinet',
+              },
+              {
+                label: 'Notre équipe',
+                to: '/notre-cabinet/equipe',
+              },
+              {
+                label: 'Notre méthode',
+                to: '/notre-cabinet/methode',
+              },
+              {
+                label: 'Témoignages',
+                to: '/notre-cabinet/temoignages',
+              },
+            ],
+          },
+          {
             title: 'Expertise',
             items: [
               {
                 label: 'Protection Patrimoniale',
-                to: '/expertise/protection',
+                to: '/expertise/protection/introduction',
               },
               {
                 label: 'Optimisation Fiscale',
-                to: '/expertise/fiscalite',
+                to: '/expertise/fiscalite/introduction',
               },
               {
                 label: 'Transmission',
-                to: '/expertise/transmission',
+                to: '/expertise/protection/transmission-entreprise',
               },
               {
                 label: 'Investissement',
-                to: '/expertise/investissement',
+                to: '/expertise/investissement/introduction',
               },
             ],
           },
@@ -145,19 +242,40 @@ const config = {
             ],
           },
           {
-            title: 'À propos',
+            title: 'Ressources et Contact',
             items: [
               {
-                label: 'Notre Cabinet',
-                to: '/a-propos',
+                label: 'Actualités',
+                to: '/actualites',
+              },
+              {
+                label: 'Guide & Fiches pratiques',
+                to: '/ressources/guides',
+              },
+              {
+                label: 'FAQ',
+                to: '/faq',
               },
               {
                 label: 'Contact',
                 to: '/contact',
               },
+            ],
+          },
+          {
+            title: 'Légal',
+            items: [
               {
                 label: 'Mentions Légales',
                 to: '/mentions-legales',
+              },
+              {
+                label: 'Politique de confidentialité',
+                to: '/politique-confidentialite',
+              },
+              {
+                label: 'Conditions d\'utilisation',
+                to: '/conditions-utilisation',
               },
             ],
           },
@@ -171,7 +289,7 @@ const config = {
             ],
           },
         ],
-        copyright: `© ${new Date().getFullYear()} Marbo Finance | Cabinet de gestion de patrimoine indépendant | 11 B Avenue Emile Baudot, 91300 Massy`,
+        copyright: `© ${new Date().getFullYear()} Marbo Finance | Cabinet de gestion de patrimoine indépendant | 11 B Avenue Emile Baudot, 91300 Massy | SIREN: 877985275`,
       },
       prism: {
         theme: require('prism-react-renderer').themes.github,
@@ -182,6 +300,45 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
+      announcementBar: {
+        id: 'support_us',
+        content: 'Nouveau ! Découvrez notre simulateur d\'optimisation fiscale 2025 <a href="/simulation">ici</a>',
+        backgroundColor: '#004d95',
+        textColor: '#fff',
+        isCloseable: true,
+      },
+      // Ajout des balises schema.org pour SEO
+      headTags: [
+        {
+          tagName: 'script',
+          attributes: {
+            type: 'application/ld+json',
+          },
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            'name': 'Marbo Finance',
+            'url': 'https://marbo-finance.fr',
+            'logo': 'https://marbo-finance.fr/img/logo.svg',
+            'description': 'Cabinet de gestion de patrimoine indépendant en Île-de-France spécialisé dans l\'optimisation fiscale, la protection patrimoniale et la préparation retraite.',
+            'address': {
+              '@type': 'PostalAddress',
+              'streetAddress': '11 B Avenue Emile Baudot',
+              'addressLocality': 'Massy',
+              'postalCode': '91300',
+              'addressCountry': 'FR'
+            },
+            'contactPoint': {
+              '@type': 'ContactPoint',
+              'telephone': '+33-X-XX-XX-XX-XX',
+              'contactType': 'customer service'
+            },
+            'sameAs': [
+              'https://www.linkedin.com/company/marbo-finance/'
+            ]
+          }),
+        },
+      ],
     }),
 };
 
