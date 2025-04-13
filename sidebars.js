@@ -18,9 +18,10 @@ const sidebars = {
       label: 'Protection & Transmission',
       items: [
         'protection/introduction',
-        'protection/restructuration-patrimoniale',
-        'protection/protection-conjoint',
-        'protection/transmission-entreprise',
+        // Ces fichiers n'existent pas encore, donc on les commente
+        // 'protection/restructuration-patrimoniale',
+        // 'protection/protection-conjoint',
+        // 'protection/transmission-entreprise',
       ],
     },
     {
@@ -28,9 +29,9 @@ const sidebars = {
       label: 'Fiscalité & Optimisation',
       items: [
         'fiscalite/introduction',
-        'fiscalite/declaration-ifi',
-        'fiscalite/holdings-patrimoniales',
-        'fiscalite/optimisation-ir-is',
+        // 'fiscalite/declaration-ifi',
+        // 'fiscalite/holdings-patrimoniales',
+        // 'fiscalite/optimisation-ir-is',
       ],
     },
     {
@@ -38,8 +39,8 @@ const sidebars = {
       label: 'Investissement & Diversification',
       items: [
         'investissement/introduction',
-        'investissement/immobilier-professionnel',
-        'investissement/private-equity',
+        // 'investissement/immobilier-professionnel',
+        // 'investissement/private-equity',
         'investissement/strategies-multi-supports',
       ],
     },
@@ -57,8 +58,9 @@ const sidebars = {
       type: 'category',
       label: 'Ressources',
       items: [
-        'ressources/glossaire',
+        'ressources/introduction',
         'ressources/faq',
+        // 'ressources/glossaire',
         'ressources/guides',
       ],
     },
