@@ -84,46 +84,8 @@ const config = {
     ],
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-ideal-image',
-      {
-        quality: 85,
-        max: 1030,
-        min: 640,
-        steps: 2,
-        disableInDev: false,
-      },
-    ],
-    [
-      '@docusaurus/plugin-pwa',
-      {
-        debug: false,
-        offlineModeActivationStrategies: [
-          'appInstalled',
-          'standalone',
-          'queryString',
-        ],
-        pwaHead: [
-          {
-            tagName: 'link',
-            rel: 'icon',
-            href: '/img/logo.png',
-          },
-          {
-            tagName: 'link',
-            rel: 'manifest',
-            href: '/manifest.json',
-          },
-          {
-            tagName: 'meta',
-            name: 'theme-color',
-            content: '#3578e5',
-          },
-        ],
-      },
-    ],
-  ],
+  // Suppression des plugins qui ne sont pas installés
+  // Vous pourrez les ajouter plus tard si nécessaire après installation des packages
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -307,7 +269,7 @@ const config = {
         textColor: '#fff',
         isCloseable: true,
       },
-      // Déplacer headTags vers htmlMetadata
+      // Configuration schema.org
       headTags: [
         {
           tagName: 'script',
