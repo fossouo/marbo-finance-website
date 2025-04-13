@@ -27,16 +27,16 @@ const config = {
     locales: ['fr'],
   },
 
-  // Amélioration SEO : configuration des métadonnées par défaut
-  metadata: [
-    {name: 'keywords', content: 'gestion de patrimoine, finance, indépendant, fiscalité, investissement, retraite, transmission, protection, Île-de-France, Massy'},
-    {name: 'robots', content: 'index, follow'},
-    {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
-    {name: 'revisit-after', content: '7 days'},
-    {name: 'author', content: 'Marbo Finance'},
-    {property: 'og:type', content: 'website'},
-    {property: 'og:site_name', content: 'Marbo Finance'},
-  ],
+  // Déplacer metadata vers customFields pour compatibilité
+  customFields: {
+    keywords: 'gestion de patrimoine, finance, indépendant, fiscalité, investissement, retraite, transmission, protection, Île-de-France, Massy',
+    robots: 'index, follow',
+    viewport: 'width=device-width, initial-scale=1.0',
+    'revisit-after': '7 days',
+    author: 'Marbo Finance',
+    'og:type': 'website',
+    'og:site_name': 'Marbo Finance',
+  },
 
   presets: [
     [
@@ -307,7 +307,7 @@ const config = {
         textColor: '#fff',
         isCloseable: true,
       },
-      // Ajout des balises schema.org pour SEO
+      // Déplacer headTags vers htmlMetadata
       headTags: [
         {
           tagName: 'script',
