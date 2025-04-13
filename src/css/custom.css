@@ -1,0 +1,225 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #FF6B35;
+  --ifm-color-primary-dark: #e85b25;
+  --ifm-color-primary-darker: #d54f1a;
+  --ifm-color-primary-darkest: #bc4311;
+  --ifm-color-primary-light: #ff7d4f;
+  --ifm-color-primary-lighter: #ff9069;
+  --ifm-color-primary-lightest: #ffa383;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: 'Open Sans', sans-serif;
+  --ifm-heading-font-family: 'Montserrat', sans-serif;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #4A4A4A;
+  --ifm-footer-background-color: #4A4A4A;
+  --ifm-footer-link-color: #ffffff;
+  --ifm-footer-title-color: #ffffff;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #FF6B35;
+  --ifm-color-primary-dark: #e85b25;
+  --ifm-color-primary-darker: #d54f1a;
+  --ifm-color-primary-darkest: #bc4311;
+  --ifm-color-primary-light: #ff7d4f;
+  --ifm-color-primary-lighter: #ff9069;
+  --ifm-color-primary-lightest: #ffa383;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: #1e1e1e;
+  --ifm-navbar-link-color: #ffffff;
+}
+
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+  color: #4A4A4A;
+}
+
+/* Styles spécifiques pour la barre de navigation */
+.navbar-contact-link {
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar-contact-link:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: white !important;
+  text-decoration: none;
+}
+
+.navbar-simulator-link {
+  border: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary) !important;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar-simulator-link:hover {
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+  text-decoration: none;
+}
+
+/* Styles pour la page d'accueil */
+.hero {
+  padding: 6rem 0;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero__button {
+  display: inline-block;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hero__button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.hero__button--outline {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero__button--outline:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+/* Styles pour les sections de la page d'accueil */
+.section {
+  padding: 4rem 0;
+}
+
+.section--alt {
+  background-color: #f5f5f5;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section__subtitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styles pour les cartes/features */
+.feature {
+  margin-bottom: 2rem;
+}
+
+.feature__title {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.feature__icon {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+/* Responsivité */
+@media (max-width: 996px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Style pour le formulaire de contact */
+.form-contact {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-contact label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-contact input,
+.form-contact textarea,
+.form-contact select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-contact button {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-contact button:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
