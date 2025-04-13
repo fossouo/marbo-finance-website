@@ -60,7 +60,7 @@ const sidebars = {
       items: [
         'ressources/introduction',
         'ressources/faq',
-        // 'ressources/glossaire',
+        'ressources/glossaire',
         'ressources/guides',
       ],
     },
